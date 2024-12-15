@@ -1,0 +1,57 @@
+.menu-list {
+    width: 224px;
+    color: var(--white-color);
+
+    .menu-item {
+        margin-left: 0;
+    }
+}
+
+.menu-item {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    border-radius: 0;
+    font-weight: 550;
+    padding: 11px 16px;
+    line-height: 1.8rem;
+    &:hover {
+        background: rgba(255, 255, 255, 0.04);
+    }
+    &.separate {
+        border-top: 1px solid rgba(255, 255, 255, 0.4);
+    }
+}
+
+.menu-popper {
+    padding-bottom: 8px;
+}
+
+.menu-body {
+    overflow-y: overlay; // Nếu nội dung của phần tử vượt quá chiều cao của phần tử đó,
+    // một thanh cuộn dọc sẽ xuất hiện cho phép người dùng cuộn để xem phần còn lại của nội dung.
+}
+
+// Header
+.header {
+    position: relative;
+    height: 50px;
+    margin-top: -8px;
+    flex-shrink: 0;
+}
+
+.back-btn {
+    width: 50px;
+    height: 100%;
+    background-color: transparent;
+    cursor: pointer;
+    color: var(--white-color);
+}
+
+.header-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+}

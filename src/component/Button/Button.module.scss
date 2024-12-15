@@ -1,0 +1,80 @@
+.wrapper {
+    font-size: 1.6rem;
+    font-weight: 600;
+    font-family: var(--font-family);
+    min-width: 100px;
+    padding: 9px 16px;
+    border-radius: 4px;
+    background-color: transparent;
+    border: 1px solid transparent;
+    user-select: none;
+    + .wrapper {
+        margin-left: 8px;
+    }
+    color: var(--white-color);
+}
+
+.title + .icon,
+.icon + .title {
+    margin: 0 8px;
+}
+//  button type
+.rounded {
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0);
+    background: none rgb(37, 37, 37);
+    outline: none;
+    color: rgba(255, 255, 255, 0.75);
+    &:hover {
+        border-color: rgba(255, 255, 255, 0);
+        background-color: rgb(46, 46, 46);
+    }
+}
+
+.primary {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    cursor: pointer;
+    &:hover {
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), rgb(254, 44, 85);
+    }
+}
+
+.outline {
+    color: var(--primary-color);
+    background-color: rgba(255, 255, 255, 0.08);
+    border-color: var(--primary-color);
+    &:hover {
+        cursor: pointer;
+        border-color: var(--primary-color);
+        background-color: rgba(254, 44, 85, 0.1);
+    }
+}
+
+.text {
+    color: var(--white-color);
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.icon {
+    display: inline-block;
+    width: 20px;
+    text-align: center;
+}
+.disable {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+// button size
+.small {
+    min-width: 88px;
+    padding: 4px 16px;
+}
+
+.large {
+    min-width: 148px;
+    padding: 14px 16px;
+}
