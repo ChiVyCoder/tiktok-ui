@@ -1,0 +1,245 @@
+.wrapper {
+    height: calc(100vh - var(--default-layout-header-height)); /* Chiếm toàn bộ chiều cao của màn hình */
+    overflow-y: auto; /* Bật cuộn dọc */
+    scroll-snap-type: y mandatory; /* Kích hoạt scroll snapping theo chiều dọc */
+    -webkit-overflow-scrolling: touch; /* Tối ưu hóa cuộn trên thiết bị cảm ứng */
+    background-color: var(--black-primary); /* Nền đen cho giống với TikTok */
+    scroll-behavior: smooth; /* Cuộn mượt mà */
+    margin: 0; /* Đảm bảo không có khoảng trống xung quanh */
+    padding: 0; /* Đảm bảo không có khoảng trống bên trong */
+}
+
+.video-content {
+    height: calc(100vh - var(--default-layout-header-height)); /* Chiếm toàn bộ chiều cao của màn hình */
+    width: 100%;
+    scroll-snap-align: start; /* Dừng cuộn tại đầu mỗi phần tử */
+    display: flex;
+    flex-direction: column; /* Đặt các phần tử con theo chiều dọc */
+    justify-content: center; /* Đảm bảo không có khoảng trống bên trong */
+    align-items: center; /* Căn giữa theo chiều ngang */
+    padding: 0; /* Đảm bảo không có khoảng đệm xung quanh */
+    margin: 0; /* Đảm bảo không có khoảng trống xung quanh */
+    border-bottom: 1px solid #5b5b5b;
+    box-sizing: border-box; /* Đảm bảo padding và border được tính vào kích thước tổng */
+    background-color: var(--black-primary); /* Nền đen cho phần tử */
+}
+
+.video-info {
+    width: 100%;
+    color: #fff; /* Màu trắng cho văn bản */
+    padding: 10px;
+    z-index: 1; /* Đảm bảo thông tin xuất hiện trên video */
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.account-info-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.account-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-right: 6px;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.nick-name {
+    font-size: 1.4rem;
+}
+
+.tick {
+    margin-left: 5px;
+    color: #1da1f2; /* Màu xanh dương cho dấu tick */
+}
+
+.note {
+    font-size: 1.2rem;
+    margin-right: 4px;
+}
+
+.background-music {
+    color: #aaa; /* Màu xám cho âm nhạc */
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    cursor: pointer;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.video-interact {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.video-loading,
+.pause {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.loading-icon {
+    font-size: 3rem;
+    animation: loading 0.8s ease-in-out infinite;
+}
+
+.pause-icon {
+    font-size: 3rem;
+}
+
+@keyframes loading {
+    from {
+        transform: translateY(-50%) rotate(0);
+    }
+    to {
+        transform: translateY(-50%) rotate(360deg);
+    }
+}
+
+.video-content .video {
+    max-width: 100%;
+    max-height: 70vh;
+    position: relative;
+    width: auto;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    border-radius: 16px;
+    &:hover ~ .video-utilities {
+        display: flex;
+    }
+}
+
+.video-wrapper {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.video-utilities {
+    display: none;
+    position: absolute;
+    width: 50px;
+    z-index: 3;
+    top: 0;
+    right: auto;
+    left: 0;
+    bottom: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    &:hover {
+        display: flex;
+    }
+}
+
+.volumn-muted,
+.volumn-hight,
+.options {
+    padding: 8px;
+    margin: 0 0 4px 4px;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+.volumn-btn {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.volumn-range {
+    display: none;
+    opacity: 0;
+    transform: rotate(270deg);
+    position: absolute;
+    color: #fff;
+    width: 60px; /* Đặt chiều cao của thanh trượt */
+    height: 4px; /* Đặt chiều rộng của thanh trượt */
+    left: -8px;
+    top: -30px;
+    border-radius: 2px;
+    transition: all 0.3s linear;
+    cursor: pointer;
+    -webkit-appearance: none;
+    &:hover {
+        display: block;
+        opacity: 1;
+    }
+}
+
+.volumn-btn:hover .volumn-range {
+    display: block;
+    opacity: 1;
+}
+
+.volumn-range::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Loại bỏ kiểu dáng mặc định của thumb */
+    appearance: none;
+    width: 9px; /* Đặt chiều rộng của thumb */
+    height: 9px; /* Đặt chiều cao của thumb */
+    background: #fff; /* Đặt màu nền của thumb */
+    cursor: pointer; /* Đặt kiểu con trỏ khi di chuột vào thumb */
+    border-radius: 50%; /* Bo tròn các góc của thumb */
+}
+
+.options-item {
+    position: relative;
+    width: 220px;
+    height: 40px;
+    padding: 8px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.04);
+    }
+}
+
+.options-item:nth-child(1),
+.options-item:nth-child(2) {
+    &::after {
+        content: '';
+        display: block;
+        width: calc(100% - 32px);
+        height: 0.5px;
+        position: absolute;
+        bottom: 0px;
+        left: 16px;
+        background: rgba(255, 255, 255, 0.12);
+    }
+}
+
+.options-icon {
+    margin-right: 10px;
+    font-size: 1.5rem;
+}
+
+.interact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    margin-left: 10px;
+    width: 50px;
+    flex-shrink: 0;
+    height: 100%;
+}

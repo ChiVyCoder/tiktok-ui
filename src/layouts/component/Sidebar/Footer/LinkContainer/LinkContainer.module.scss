@@ -1,0 +1,13 @@
+.page_link {
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    display: inline-block;
+    margin-right: 6px;
+    margin-top: 5px;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}

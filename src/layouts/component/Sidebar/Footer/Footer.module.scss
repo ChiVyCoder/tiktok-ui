@@ -1,0 +1,65 @@
+.wrapper {
+    position: relative;
+    padding-top: 16px;
+    padding-left: 8px;
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 1px;
+        height: 1px;
+        background-color: rgb(77, 76, 76);
+    }
+}
+
+.banner {
+    &::before {
+        position: absolute;
+        content: 'Tạo hiệu ứng TikTok, nhận phần thưởng';
+        background-color: transparent;
+        height: 32px;
+        width: 140px;
+        z-index: 3;
+        top: 26px;
+        left: 18px;
+        color: rgb(0, 0, 0);
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px;
+    }
+}
+
+.banner-img {
+    position: relative;
+    cursor: pointer;
+    height: 52px;
+    width: 208px;
+    border-radius: 8px;
+    display: block;
+    user-select: none;
+}
+
+.link-list {
+    font-size: 15px;
+    line-height: 22px;
+    margin: 15px 0 0 0;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.5);
+    font-family: TikTokDisplayFont;
+    font-weight: 900;
+}
+
+.active {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.copyright {
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    display: inline-block;
+    margin-right: 6px;
+    margin-top: 5px;
+}

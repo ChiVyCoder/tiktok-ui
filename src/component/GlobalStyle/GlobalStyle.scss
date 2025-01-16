@@ -23,14 +23,19 @@ html {
 body {
     font-family: var(--font-family);
     font-size: 1.6rem;
-    list-style: 1.5;
+    line-height: 1.5;
     color: var(--white-color);
     background-color: var(--black-primary);
     text-rendering: optimizeSpeed; // tot do render font
     margin: 0;
 }
 
+p {
+    margin: 0;
+}
+
 // scroll bar
+/* Tùy chỉnh phần thanh cuộn */
 html ::-webkit-scrollbar {
     border-radius: 0px;
     width: 8px;
@@ -48,7 +53,6 @@ html *::-webkit-scrollbar-thumb {
     border-radius: 4px;
     background-color: rgba(255, 255, 255, 0.08);
 }
-
 html ::-webkit-scrollbar-track {
     border-radius: 0px;
     background-color: rgba(0, 0, 0, 0);
@@ -57,6 +61,21 @@ html *::-webkit-scrollbar-track {
     border-radius: 0;
     background-color: rgba(0, 0, 0, 0);
 }
+.simplebar-scrollbar::before {
+    width: 6px;
+    height: 100%;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.3);
+}
+/* Tùy chỉnh thanh cuộn khi hover */
+.simplebar-scrollbar:hover::before {
+    background-color: #535353;
+} /* Tùy chỉnh phần rãnh của thanh cuộn */
+.simplebar-track.simplebar-vertical {
+    background-color: transparent;
+    /* Màu nền của rãnh */
+    border-radius: 10px;
+} /* Bo góc của rãnh */
 
 // Fonts
 @font-face {
@@ -90,7 +109,7 @@ input,
     border: none;
 }
 
-a[href] {
+a {
     color: var(--text-color);
     text-decoration: none;
 }

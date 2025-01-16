@@ -1,0 +1,32 @@
+.wrapper {
+    width: 356px;
+    height: 100%;
+    min-height: 100px;
+    background-color: var(--black-primary);
+    padding: 20px 0 26px 0;
+    overflow: hidden;
+}
+
+/* Tùy chỉnh toàn bộ thanh cuộn */
+/* Tùy chỉnh toàn bộ thanh cuộn */
+.simplebar-scrollbar::before {
+    background-color: #ff6347 !important; /* Màu của thanh cuộn */
+    border-radius: 10px !important; /* Bo góc của thanh cuộn */
+    width: 10px !important; /* Chiều rộng của thanh cuộn */
+}
+
+/* Tùy chỉnh thanh cuộn khi hover */
+.simplebar-scrollbar:hover::before {
+    background-color: #cd5c5c !important; /* Màu của thanh cuộn khi hover */
+}
+
+/* Tùy chỉnh phần rãnh của thanh cuộn */
+.simplebar-track.simplebar-vertical {
+    background-color: #f1f1f1 !important; /* Màu nền của rãnh */
+    width: 12px !important; /* Chiều rộng của rãnh */
+}
+
+.simplebar-track.simplebar-horizontal {
+    background-color: #f1f1f1 !important; /* Màu nền của rãnh */
+    height: 12px !important; /* Chiều cao của rãnh */
+}

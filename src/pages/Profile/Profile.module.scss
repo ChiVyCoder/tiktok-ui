@@ -1,0 +1,231 @@
+.wrapper {
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+    background-color: var(--black-primary);
+    height: calc(100vh - var(--default-layout-header-height));
+    padding: 32px 24px 36px;
+}
+
+// loại bỏ float
+.clearfix::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    height: 212px;
+    margin-bottom: 20px;
+    background-color: var(--black-primary);
+}
+
+.avatar {
+    width: 212px;
+    height: 212px;
+    border-radius: 50%;
+    margin-right: 16px;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.title-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.account-name {
+}
+
+.full-name {
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-right: 8px;
+}
+
+.nick-name {
+    font-size: 1.8rem;
+}
+
+.button-panel-wrapper {
+    display: flex;
+}
+
+.follow-btn {
+}
+
+.mesage-btn {
+    cursor: pointer;
+    background-color: rgb(49, 49, 49);
+    &:hover {
+        background-color: rgb(63, 63, 63);
+    }
+}
+
+.share-icon,
+.options-icon {
+    margin-left: 8px;
+    background-color: rgb(49, 49, 49);
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    color: var(--white-color);
+    cursor: pointer;
+    &:hover {
+        background-color: rgb(63, 63, 63);
+    }
+}
+
+.text-container {
+}
+.count-infos {
+    margin: 0;
+}
+.count-info,
+.count-info {
+    margin-right: 12px;
+}
+.count {
+    font-size: 1.8rem;
+    margin-right: 6px;
+}
+.count-unit {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+.bio {
+    margin: 10px 0 0 0;
+    text-align: left;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+    white-space: pre-line;
+    max-width: 600px;
+}
+
+.video-feedTab {
+    display: flex;
+    position: relative;
+    margin-bottom: 24px;
+    &::after {
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        content: '';
+        width: 100%;
+        height: 1px;
+        background-color: rgba(255, 255, 255, 0.12);
+        transform: scaleY(0.5);
+    }
+}
+
+.feedTab-item {
+    height: 44px;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    font-weight: 650;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 18px;
+    line-height: 24px;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+.feedTab-item.active {
+    color: var(--white-color);
+}
+
+.feedTab-icon {
+    margin-right: 6px;
+}
+
+.bottom-line {
+    position: absolute;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.9);
+    bottom: 0px;
+    transition: width 0.3s, left 0.3s;
+    width: 120px;
+}
+
+.videos,
+.videos-liked {
+    flex: 1 1 auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    margin: 0px auto;
+    min-height: 400px;
+    display: none;
+}
+.video-like-main-title {
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.9);
+    margin-top: 24px;
+}
+
+.video-like-sub-title {
+    font-size: 16px;
+    line-height: 21px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.75);
+    margin-top: 8px;
+}
+
+///////
+/// /////////// video's user
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+}
+
+.video-item {
+    display: flex;
+    justify-content: center;
+    width: calc(100% / 3.3);
+    border-radius: 8px;
+    height: 300px;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin: 0 12px 12px 0;
+}
+
+.a-video-item {
+    text-align: left;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.video {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.video-footer {
+    position: absolute;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+    padding: 67px 13px 17px;
+}
+
+.views-count {
+    color: rgb(255, 255, 255);
+    font-family: TikTokFont;
+    font-weight: 600;
+    vertical-align: middle;
+    font-size: 16px;
+}

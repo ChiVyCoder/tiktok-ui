@@ -1,0 +1,36 @@
+.menu {
+    padding-bottom: 12px;
+}
+
+.menu-item {
+    display: flex;
+    font-size: 1.8rem;
+    font-weight: 700;
+    align-items: center;
+    padding: 8px;
+    color: var(--white-color);
+    border-radius: 4px;
+    transition: background-color ease-in-out 200ms;
+    &.active {
+        color: var(--primary-color);
+    }
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.04);
+    }
+    //active:  change background color when mouse dow
+    &:active {
+        background-color: rgba(255, 255, 255, 0.12);
+    }
+}
+
+.title {
+    margin-left: 10px;
+}
+
+.avatar {
+    width: 32px;
+    height: 32px;
+    padding: 4px;
+    border-radius: 50%;
+    object-fit: cover;
+}
