@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './Following.module.scss';
 import Button from '~/component/Button';
 import * as videosService from '~/services/videosService';

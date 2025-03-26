@@ -1,0 +1,18 @@
+.wrapper {
+    display: flex;
+    height: 100%;
+}
+
+.watching-container {
+    flex: 1 0 600px;
+}
+
+.comment-container {
+    border-left: 2px solid #ddd;
+    background-color: #121212;
+    flex: 0 0 544px;
+    width: 544px;
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+}

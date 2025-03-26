@@ -1,15 +1,30 @@
 import classNames from 'classnames/bind';
-import { faEllipsisVertical, faSadCry, faShare } from '@fortawesome/free-solid-svg-icons';
+import { useState } from 'react';
+import { faCircleCheck, faEllipsisVertical, faShare } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
+import { NavLink, useParams } from 'react-router-dom';
 import styles from './Profile.module.scss';
 import Image from '~/component/Image';
 import Button from '~/component/Button';
+import * as profileService from '~/services/profileService';
 import { LikedIcon, ListColumnIcon, LookIcon, PauseIcon } from '~/component/Icons/Icons';
-import { Link } from 'react-router-dom';
-
 const cx = classNames.bind(styles);
+
 function Profile() {
+    const [userData, setUserData] = useState([]);
+    const [userVideo, setUserVideo] = useState([]);
+    const { nickname } = useParams(); // dùng để lấy ra tham số của routes
+    useEffect(() => {
+        loadUser();
+    }, []);
+
+    const loadUser = async () => {
+        const result = await profileService.getUser(`@${nickname}`);
+        setUserData(result);
+        setUserVideo(result.videos);
+    };
+
     const handleBottomLine = () => {
         const feedTabActive = document.getElementsByClassName(cx('feedTab-item', 'active'))[0];
         const bottomLine = document.getElementsByClassName(cx('bottom-line'))[0];
@@ -64,16 +79,17 @@ function Profile() {
         <div className={cx('wrapper', 'clearfix')}>
             <div className={cx('header')}>
                 <div>
-                    <Image
-                        src="https://upanh123.com/wp-content/uploads/2021/02/anh-luffy-dep3-745x1024.jpg"
-                        alt="avatar"
-                        className={cx('avatar')}
-                    />
+                    <Image src={userData.avatar} alt="avatar" className={cx('avatar')} />
                 </div>
                 <div className={cx('title-container')}>
                     <div className={cx('account-name')}>
-                        <span className={cx('full-name')}>Tran Chi Vy</span>
-                        <span className={cx('nick-name')}>@tranchivy</span>
+                        <span className={cx('full-name')}>{`${userData.first_name} ${userData.last_name}`}</span>
+                        {userData.tick && (
+                            <span className={cx('tick')}>
+                                <FontAwesomeIcon icon={faCircleCheck} />
+                            </span>
+                        )}
+                        <span className={cx('nick-name')}>@{userData.nickname}</span>
                     </div>
                     <div className={cx('button-panel-wrapper')}>
                         <Button className={cx('follow-btn')} primary>
@@ -90,22 +106,19 @@ function Profile() {
                     <div className={cx('text-container')}>
                         <h2 className={cx('count-infos')}>
                             <span className={cx('count-info')}>
-                                <strong className={cx('count')}>12</strong>
+                                <strong className={cx('count')}>{userData.followers_count}</strong>
                                 <span className={cx('count-unit')}>Followers</span>
                             </span>
                             <span className={cx('count-info')}>
-                                <strong className={cx('count')}>12</strong>
+                                <strong className={cx('count')}>{userData.followings_count}</strong>
                                 <span className={cx('count-unit')}>Following</span>
                             </span>
                             <span className={cx('count-info')}>
-                                <strong className={cx('count')}>12</strong>
+                                <strong className={cx('count')}>{userData.likes_count}</strong>
                                 <span className={cx('count-unit')}>Like</span>
                             </span>
                         </h2>
-                        <h3 className={cx('bio')}>
-                            Mọi người theo dõi kênh mới của mình nha Giúp mình lên 1k fl vs ạ 🥹 Mọi người theo dõi kênh
-                            mới của mình nha Giúp mình lên 1k fl vs ạ 🥹
-                        </h3>
+                        <h3 className={cx('bio')}>{userData.bio}</h3>
                     </div>
                 </div>
             </div>
@@ -126,19 +139,22 @@ function Profile() {
                 <div className={cx('user-video')}>
                     <div className={cx('videos', 'active')}>
                         <div className={cx('container')}>
-                            <div className={cx('video-item')} onMouseOut={handleMouseOut} onMouseOver={handleMouseOver}>
-                                <Link className={cx('a-video-item')}>
-                                    <video
-                                        muted
-                                        className={cx('video')}
-                                        src="https://files.fullstack.edu.vn/f8-tiktok/videos/59-6304ab495bae9.mp4"
-                                    />
-                                    <div className={cx('video-footer')}>
-                                        <PauseIcon />
-                                        <strong className={cx('views-count')}>1232</strong>
-                                    </div>
-                                </Link>
-                            </div>
+                            {userVideo.map((video, index) => (
+                                <div
+                                    className={cx('video-item')}
+                                    onMouseOut={handleMouseOut}
+                                    onMouseOver={handleMouseOver}
+                                    key={index}
+                                >
+                                    <NavLink to={`/video/${video.id}`} className={cx('a-video-item')}>
+                                        <video muted className={cx('video')} src={video.file_url} />
+                                        <div className={cx('video-footer')}>
+                                            <PauseIcon />
+                                            <strong className={cx('views-count')}>{video.views_count}</strong>
+                                        </div>
+                                    </NavLink>
+                                </div>
+                            ))}
                         </div>
                     </div>
                     <div className={cx('videos-liked')}>
@@ -147,7 +163,7 @@ function Profile() {
                             Video đã thích của người dùng này ở trạng thái riêng tư
                         </div>
                         <div className={cx('video-like-sub-title')}>
-                            Các video được thích bởi livedanhgiay2001 hiện đang ẩn
+                            {`Các video được thích bởi ${userData.nickname} hiện đang ẩn`}
                         </div>
                     </div>
                 </div>

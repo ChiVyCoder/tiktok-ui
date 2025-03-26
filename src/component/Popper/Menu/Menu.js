@@ -6,7 +6,6 @@ import classNames from 'classnames/bind';
 import { Wrapper as WrapperPopper } from '~/component/Popper';
 import MenuItems from './MenuItems';
 import Header from './Header';
-import { data } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 const emtyFn = () => {};

@@ -6,6 +6,7 @@ import Following from '~/pages/Following';
 import Upload from '~/pages/Upload';
 import Profile from '~/pages/Profile/Profile';
 import Live from '~/pages/Live';
+import ContentOnly from '~/layouts/ContentOnly';
 
 //  public routes
 export const publicRoutes = [
@@ -13,7 +14,7 @@ export const publicRoutes = [
     { path: config.routes.following, component: Following },
     { path: config.routes.nickname, component: Profile }, // nickname là partent nghĩa là phần ko cố định có thể thay đổi
     { path: config.routes.live, component: Live },
-    { path: config.routes.profile, component: Profile },
     { path: config.routes.upload, component: Upload, layout: HeaderOnly },
+    { path: config.routes.video, component: null, layout: ContentOnly },
 ];
 export const privateRoutes = [];

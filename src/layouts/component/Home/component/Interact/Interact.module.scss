@@ -10,8 +10,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 48px;
-    height: 48px;
     border-radius: 50%;
     object-fit: cover;
     background-color: #2f2f2f;
@@ -22,11 +20,13 @@
 }
 
 .icon {
+    color: #fff;
     display: flex;
     align-items: center;
-    font-size: 30px;
+    font-size: 25px;
 }
 .value {
-    margin-top: 4px;
+    color: #fff;
+    margin: 4px 0 0 6px;
     font-size: 1.4rem;
 }

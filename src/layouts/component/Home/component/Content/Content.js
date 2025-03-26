@@ -11,7 +11,6 @@ import {
     faFlag,
     faHeartCrack,
     faMusic,
-    faPause,
     faPlay,
     faShare,
     faVolumeHigh,
@@ -25,6 +24,7 @@ import Interact from '../Interact/Interact';
 import AdOverlay from '~/component/AdOverlay/AdOverlay';
 import { Wrapper as WrapperPopper } from '~/component/Popper';
 import Button from '~/component/Button';
+import { NavLink } from 'react-router-dom';
 const cx = classNames.bind(styles);
 
 function Content({ data, loadMore }) {
@@ -145,7 +145,6 @@ function Content({ data, loadMore }) {
     // Xử lí hiệu ứng loading
     const updateLoadingIcon = () => {
         if ((navigator.connection && navigator.connection.downlink < 1) || !navigator.onLine) {
-            console.log(navigator.connection.downlink);
             setLoading(true);
         } else {
             setLoading(false);
@@ -208,10 +207,13 @@ function Content({ data, loadMore }) {
                     <div className={cx('video-info')}>
                         <div className={cx('account-info-header')}>
                             <span className={cx('account-info')}>
-                                <Image className={cx('avatar')} src={video.user.avatar} />
-                                <span
+                                <NavLink to={`/profile/${video.user.nickname}`}>
+                                    <Image className={cx('avatar')} src={video.user.avatar} />
+                                </NavLink>
+                                <NavLink
+                                    to={`/profile/${video.user.nickname}`}
                                     className={cx('user-name')}
-                                >{`${video.user.first_name} ${video.user.last_name} `}</span>
+                                >{`${video.user.first_name} ${video.user.last_name} `}</NavLink>
                                 {video.user.tick && <span className={cx('tick')}>{video.user.tick}</span>}
                                 <span className={cx('nick-name')}>@{video.user.nickname}</span>
                             </span>
@@ -285,7 +287,12 @@ function Content({ data, loadMore }) {
                         )}
                         <div className={cx('interact')}>
                             <Interact icon={<HeartIcon />} value={video.likes_count} />
-                            <Interact icon={<FontAwesomeIcon icon={faCommentDots} />} value={video.comments_count} />
+                            <NavLink to={`/video/${video.id}`}>
+                                <Interact
+                                    icon={<FontAwesomeIcon icon={faCommentDots} />}
+                                    value={video.comments_count}
+                                />
+                            </NavLink>
                             <Interact icon={<FontAwesomeIcon icon={faBookmark} />} value={0} />
                             <Interact icon={<FontAwesomeIcon icon={faShare} />} value={video.shares_count} />
                         </div>

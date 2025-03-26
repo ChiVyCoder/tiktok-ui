@@ -37,11 +37,6 @@ function Sidebar() {
                     <MenuItem title="For you" to={config.routes.home} icon={<HomeIcon />} />
                     <MenuItem title="Following" to={config.routes.following} icon={<FollowingIcon />} />
                     <MenuItem title="Live" to={config.routes.live} icon={<LiveIcon />} />
-                    <MenuItem
-                        title="Profile"
-                        to={config.routes.profile}
-                        img="https://upanh123.com/wp-content/uploads/2021/02/anh-luffy-dep3-745x1024.jpg"
-                    />
                 </Menu>
                 <SuggestsAccounts onViewChange={handleViewChange} label="Suggested accounts" data={suggestedAccounts} />
                 <Footer></Footer>

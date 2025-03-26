@@ -1,0 +1,100 @@
+.wrapper {
+    height: 100vh;
+    background-color: var(--black-primary);
+    max-width: 100%;
+    position: relative;
+    overflow: hidden;
+    padding: 0px 80px;
+}
+
+.close-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--white-color);
+    position: absolute;
+    z-index: 10;
+    left: 20px;
+    top: 20px;
+    font-size: 18px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(84, 84, 84, 0.5);
+    cursor: pointer;
+    &:hover {
+        background-color: rgba(37, 37, 37, 0.6);
+        opacity: 0.7;
+    }
+}
+
+.video-warpper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+}
+.video {
+    width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.time-range {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    width: 450px;
+    z-index: 10;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.input {
+    appearance: none;
+    -webkit-appearance: none;
+    height: 3px;
+    width: 300px;
+    background: #ffffff;
+    outline: none;
+    opacity: 0.8;
+    -webkit-transition: 0.2s;
+    transition: opacity 0.2s;
+    margin: 0 8px;
+    cursor: pointer;
+}
+
+.input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 8px;
+    height: 8px;
+    background: #fff;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.time-progress {
+    font-size: 1.4rem;
+    flex: 0 0 88px;
+    max-width: 88px;
+    margin-inline-start: 8px;
+    font-size: 14px;
+    line-height: 24px;
+    color: rgb(255, 255, 255);
+    text-align: end;
+    white-space: nowrap;
+    font-feature-settings: 'tnum'; //đảm bảo rằng tất cả các số trong văn bản có cùng chiều rộng.
+    font-variant-numeric: tabular-nums; //đảm bảo rằng tất cả các số trong văn bản có cùng chiều rộng.
+}
+
+.pause-icon {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(32%, -43%);
+}
