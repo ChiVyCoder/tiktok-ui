@@ -1,5 +1,6 @@
 {
     "name": "tiktok-ui",
+    "homepage": "https://chivycoder.github.io",
     "version": "0.1.0",
     "private": true,
     "dependencies": {
@@ -26,6 +27,8 @@
     "scripts": {
         "start": "react-app-rewired start",
         "build": "react-app-rewired build",
+        "deploy": "gh-pages -d build",
+        "predeploy": "npm run build",
         "test": "react-app-rewired test",
         "eject": "react-app-rewired eject"
     },
@@ -50,6 +53,7 @@
     "devDependencies": {
         "babel-plugin-module-resolver": "^5.0.2",
         "customize-cra": "^1.0.0",
+        "gh-pages": "^6.3.0",
         "react-app-rewired": "^2.2.1",
         "sass": "^1.82.0"
     }
